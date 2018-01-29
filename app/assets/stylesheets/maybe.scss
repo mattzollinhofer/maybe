@@ -1,0 +1,37 @@
+form label {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.table tbody {
+  border-bottom: 1px solid #ccc;
+}
+
+.list-group{
+  .block{
+    display: block;
+  }
+}
+
+.btn{
+  font-family: $font-family-narrow;
+  text-transform: uppercase;
+}
+
+.add-students{
+  label{
+    display: none;
+  }
+}
+
+.hide-overflow
+{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  display:block;
+}
+
+.highlight{
+  background-color: $highlight-color;
+}
