@@ -48,6 +48,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rubocop', require: false
+  gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console'
