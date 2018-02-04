@@ -18,10 +18,11 @@ form label {
   text-transform: uppercase;
 }
 
-.add-students{
-  label{
-    display: none;
-  }
+.available{
+  color: green;
+}
+.unavailable{
+  color: #ccc;
 }
 
 .hide-overflow
