@@ -25,6 +25,7 @@ class Availability
   private
 
   def available?
+    return false if @user.unavailable_at.blank?
     @user.unavailable_at > Time.current
   end
 
