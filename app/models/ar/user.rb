@@ -8,6 +8,11 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  attr_accessor :available_for
+
+  scope :friends_available_for_calls,
+    -> (me) { where.not(id: me).where("available = ?", true).where("unavailable_at > ?", Time.current) }
+
   def name
     "#{first_name} #{last_name}"
   end

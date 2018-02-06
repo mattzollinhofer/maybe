@@ -1,0 +1,15 @@
+<div class='panel panel-primary default-panel'>
+  <div class='panel-heading'>
+    <div class='panel-title'>
+      <h2 class='<%= welcome.availability%>'>Availability</h2>
+    </div>
+  </div>
+  <div class='panel-body'>
+    <%= simple_form_for welcome.user, url: availability_path do |form| %>
+      <%= form.hidden_field :id %>
+      <%= form.input :available, label: 'Available?', as: 'radio_buttons'%>
+      <%= form.input :available_for, label: 'Available for (in minutes)' %>
+      <%= form.button :submit, 'data-disable-with': 'Updating...' %>
+    <% end %>
+  </div>
+</div>
