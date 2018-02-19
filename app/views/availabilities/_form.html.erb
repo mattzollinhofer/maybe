@@ -5,20 +5,19 @@
     </div>
   </div>
   <div class='panel-body'>
+
+      <div class='input-group-btn'>
+        <%= link_to 'Unavailable', availability_path({time: '0'}), method: :put, class: 'btn btn-default' %>
+        <%= link_to '15', availability_path({time: '15'}), method: :put, class: 'btn btn-default' %>
+        <%= link_to '30', availability_path({time: '30'}), method: :put, class: 'btn btn-default' %>
+        <%= link_to '60', availability_path({time: '60'}), method: :put, class: 'btn btn-default' %>
+      </div>
+
+
     <%= simple_form_for welcome.user, url: availability_path, html: {class: 'input-group'} do |form| %>
-
-      <span class='input-group-btn'>
-        <%= link_to 'Unavailable', availability_path({time: '0'}), method: :put, class: 'btn' %>
-        <%= link_to '15', availability_path({time: '15'}), method: :put, class: 'btn' %>
-        <%= link_to '30', availability_path({time: '30'}), method: :put, class: 'btn' %>
-        <%= link_to '60', availability_path({time: '60'}), method: :put, class: 'btn' %>
-      </span>
-
-
-      <span class='input-group-btn'>
       <%= form.hidden_field :id %>
       <%= form.input :available_for, label: 'Available for (in minutes)' %>
-      <%= form.button :submit, class: 'input-group-btn', 'data-disable-with': 'Updating...' %>
+      <%= form.button :submit, 'Set Availability', 'data-disable-with': 'Updating...' %>
     <% end %>
   </div>
 </div>
