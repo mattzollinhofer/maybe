@@ -1,15 +1,24 @@
 <div class='panel panel-primary default-panel'>
   <div class='panel-heading'>
     <div class='panel-title'>
-      <h2 class='<%= welcome.availability%>'>Availability</h2>
+      <h2 class='<%= welcome.availability%>'><%= welcome.availability_message %></h2>
     </div>
   </div>
   <div class='panel-body'>
-    <%= simple_form_for welcome.user, url: availability_path do |form| %>
+    <%= simple_form_for welcome.user, url: availability_path, html: {class: 'input-group'} do |form| %>
+
+      <span class='input-group-btn'>
+        <%= link_to 'Unavailable', availability_path({time: '0'}), method: :put, class: 'btn' %>
+        <%= link_to '15', availability_path({time: '15'}), method: :put, class: 'btn' %>
+        <%= link_to '30', availability_path({time: '30'}), method: :put, class: 'btn' %>
+        <%= link_to '60', availability_path({time: '60'}), method: :put, class: 'btn' %>
+      </span>
+
+
+      <span class='input-group-btn'>
       <%= form.hidden_field :id %>
-      <%= form.input :available, label: 'Available?', as: 'radio_buttons'%>
       <%= form.input :available_for, label: 'Available for (in minutes)' %>
-      <%= form.button :submit, 'data-disable-with': 'Updating...' %>
+      <%= form.button :submit, class: 'input-group-btn', 'data-disable-with': 'Updating...' %>
     <% end %>
   </div>
 </div>

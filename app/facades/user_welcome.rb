@@ -1,13 +1,21 @@
 class UserWelcome
-  attr_reader :user, :availability
+  attr_reader :user
 
   def initialize(user)
     @user = user
-    @availability = Availability.new(user: user, available: true)
+    @availability = Availability.new(user: user)
   end
 
   def display_name
     @user.name
+  end
+
+  def availability_message
+    if @availability.available?
+      "You're available for the next #{@availability.available_for} minutes"
+    else
+      "You're not available"
+    end
   end
 
   def available_friends
@@ -15,6 +23,6 @@ class UserWelcome
   end
 
   def availability
-    @availability.status
+    @availability.available? ? 'available' : 'unavailable'
   end
 end
