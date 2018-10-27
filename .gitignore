@@ -23,4 +23,5 @@
 .vim-session
 tags
 
+.DS_Store
 vendor/*
