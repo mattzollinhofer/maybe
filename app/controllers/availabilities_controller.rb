@@ -1,4 +1,6 @@
 class AvailabilitiesController < ApplicationController
+  SECONDS_TO_MINUTES = 60
+
   def update
     user = current_user
     user.update_attributes(available_at: Time.current, unavailable_at: unavailable_at)
@@ -13,7 +15,7 @@ class AvailabilitiesController < ApplicationController
   private
 
   def unavailable_at
-    Time.current + available_time
+    Time.current + (available_time * SECONDS_TO_MINUTES)
   end
 
   def available_time

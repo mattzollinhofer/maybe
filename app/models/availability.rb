@@ -15,7 +15,7 @@ class Availability
   end
 
   def available_for
-    (@user.unavailable_at - Time.current).to_i
+    (@user.unavailable_at - Time.current).to_i / 60
   end
 
   def unavailable_at
